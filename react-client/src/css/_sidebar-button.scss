@@ -1,0 +1,77 @@
+.hamburger {
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent !important;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+.hamburger:hover,
+.hamburger:focus {
+  opacity: 0.7;
+  outline: none;
+}
+.hamburger-box {
+  display: block;
+  position: relative;
+  transform-origin: top left;
+  transform: scale(0.7);
+  /* to have a larger cursor box */
+  width: 29px;
+  height: 18px;
+}
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+.hamburger-inner, .hamburger-inner__before, .hamburger-inner__after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.hamburger-inner__before, .hamburger-inner__after {
+  content: "";
+  display: block;
+}
+.hamburger-inner__before {
+  top: -10px;
+}
+.hamburger-inner__after {
+  bottom: -10px;
+}
+
+/*
+ * Minus
+ */
+.hamburger--minus .hamburger-inner__before,
+.hamburger--minus .hamburger-inner__after {
+  transition: bottom 0.08s 0s ease-out,
+  top 0.08s 0s ease-out,
+  opacity 0s linear;
+}
+.hamburger--minus.is-active .hamburger-inner__before,
+.hamburger--minus.is-active .hamburger-inner__after {
+  opacity: 0;
+  transition: bottom 0.08s ease-out,
+  top 0.08s ease-out,
+  opacity 0s 0.08s linear;
+}
+.hamburger--minus.is-active .hamburger-inner__before {
+  top: 0;
+}
+.hamburger--minus.is-active .hamburger-inner__after {
+  bottom: 0;
+}

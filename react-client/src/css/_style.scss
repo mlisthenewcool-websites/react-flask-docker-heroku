@@ -1,0 +1,116 @@
+/**
+ * Background, fonts, colors.
+ */
+body {
+  background-color: $background-color;
+  font-family: $font-family;
+  color: $font-color;
+  font-size: $font-size;
+  font-weight: 900;
+}
+
+/*
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*/
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+header {
+  // z-index: 10;
+  border-bottom: solid 3px $font-color;
+}
+
+.content .left {
+  // z-index: 10;
+  border-bottom: solid 3px $font-color;
+}
+
+/**
+ * Padding for main elements (header and content divs).
+ */
+header div,
+.content div {
+  padding: 20px;
+}
+
+
+/**
+ * Global helpers.
+ */
+.is-centered {
+  display: block;
+  padding-top: 10px;
+  //padding-bottom: 10px;
+}
+.has-text-centered {
+  text-align: center;
+}
+
+/**
+ * Links.
+ */
+a {
+  color: $font-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $link-color;
+  //border-bottom: 2px dashed;
+}
+
+
+/**
+ * TODO : move inside elements scope.
+ * Miscellaneous.
+ */
+.credits {
+  font-size: 12px;
+}
+.name {
+  font-size: 22px;
+  color: $link-color;
+}
+
+@media (min-width: $screen-breakpoint) {
+  .content .left {
+    // z-index: 10;
+    border-right: solid 3px $font-color;
+    border-bottom: none;
+  }
+}
+
+
+/**
+ * Menu header
+ */
+
+.menu {
+  background-color: transparent;
+  position: relative;
+  display: inline-block;
+  width: 1.25em;
+  height: 0.8em;
+  margin-right: 0.3em;
+  border-top: 0.2em solid #fff;
+  border-bottom: 0.2em solid #fff;
+}
+
+.menu:before {
+  content: "";
+  position: absolute;
+  top: 0.3em;
+  left: 0px;
+  width: 100%;
+  border-top: 0.2em solid #fff;
+}

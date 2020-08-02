@@ -1,0 +1,76 @@
+/**
+ * Button bars.
+ */
+.btn-group .button {
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  //width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+  margin-bottom: 1px;
+
+
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  //text-transform: uppercase;
+  //text-decoration: none;
+  //white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb !important;
+  //cursor: pointer;
+  //box-sizing: border-box;
+}
+
+.btn-group .button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group .button:hover span {
+  color: darkred;
+}
+
+/*
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: white;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb !important;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: white;
+  border-color: white;
+  outline: 0;
+}
+*/

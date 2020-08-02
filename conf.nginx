@@ -1,0 +1,39 @@
+server {
+  listen $PORT;
+
+  # ----------------------------------------------------------------------------
+  # Serve the static files
+  # ----------------------------------------------------------------------------
+  root /usr/share/nginx/html;
+  index index.html index.html;
+
+  location / {
+    try_files $uri /index.html =404;
+  }
+
+  # https://create-react-app.dev/docs/production-build/#static-file-caching
+  location /static {
+    expires    1y;
+    add_header Cache-Control "no-cache";
+  }
+
+  # https://serverfault.com/questions/586970/nginx-is-not-forwarding-a-header-value-when-using-proxy-pass/586997#586997
+  underscores_in_headers on;
+
+  # ----------------------------------------------------------------------------
+  # Allow access to backend using Nginx as reverse proxy
+  # ----------------------------------------------------------------------------
+  location /api {
+    # include                  proxy_params;
+    proxy_pass                 http://127.0.0.1:5000;
+    proxy_pass_request_headers on;
+    proxy_http_version         1.1;
+    proxy_redirect             default;
+    proxy_set_header           Upgrade $http_upgrade;
+    proxy_set_header           Connection "upgrade";
+    proxy_set_header           Host $host;
+    proxy_set_header           X-Real-IP $remote_addr;
+    proxy_set_header           X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header           X-Forwarded-Host $server_name;
+  }
+}

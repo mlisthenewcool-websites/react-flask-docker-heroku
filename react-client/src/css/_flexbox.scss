@@ -1,0 +1,130 @@
+/**
+ * Make the page full.
+ */
+html,
+body,
+#app {
+  height: 100%;
+  max-height: 100%;
+}
+
+#app {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/**
+ * No outside margin for our boxes.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ *
+ */
+header {
+  height: 80px;
+  max-height: 80px;
+}
+
+.container {
+  height: calc(100% - 83px);
+  //max-height: calc(100% - 80px);
+}
+
+/**
+ * Flex.
+ *
+ * Mobile first. Display on full columns on small screens.
+ */
+header,
+.container,
+.content {
+  display: flex;
+  height: calc(100vh - 83px);
+  //flex-direction: column;
+  // align-items: stretch;
+}
+header,
+.content {
+  flex-direction: column;
+}
+header,
+header div,
+.content,
+.content div {
+  flex: 1;
+
+  /**
+   * Added to force flex boxes to center according to left/right
+   */
+  //display: flex;
+  //justify-content: center;
+  //flex-direction: column;
+}
+
+/**
+ * Remove the page scrollbar.
+ * Flex will automatically add scrollbars on boxes.
+ */
+.content div {
+  overflow: auto;
+}
+
+/**
+ * Hide sidebar and its button on small screen.
+ */
+.content .left {
+  display: none;
+}
+.btn-sidebar {
+  display: inline;
+}
+header .right {
+  display: none;
+}
+
+/**
+ * Both left boxes will be 1/4 of the page width.
+ */
+.content .left,
+.left {
+  flex: 2;
+}
+
+/**
+ * Both right boxes will be 3/4 of the page width.
+ */
+.content .right,
+.right {
+  flex: 5;
+}
+
+/**
+ * Larger screens behavior.
+ */
+@media (min-width: $screen-breakpoint) {
+  /**
+   * Header and content boxes will be row aligned.
+   */
+  header,
+  .content {
+    flex-direction: row;
+  }
+
+  /**
+   * Display breadcrumbs and sidebar.
+   */
+  header .right,
+  .content .left {
+    display: inline;
+  }
+
+  /**
+   * Hide the button in header.
+   */
+  .btn-sidebar {
+    // display: none;
+  }
+}
